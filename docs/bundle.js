@@ -24800,7 +24800,7 @@ var handleOperation = function (op$prime) {
                 stack: ""
             };
         };
-        throw new Error("Failed pattern match at Calculator (line 82, column 25 - line 92, column 6): " + [ s.constructor.name ]);
+        throw new Error("Failed pattern match at Calculator (line 83, column 25 - line 93, column 6): " + [ s.constructor.name ]);
     };
 };
 var handleNumber = function (key) {
@@ -24851,7 +24851,7 @@ var handleEquals = function (s) {
             stack: s.stack
         };
     };
-    throw new Error("Failed pattern match at Calculator (line 95, column 18 - line 98, column 100): " + [ s.constructor.name ]);
+    throw new Error("Failed pattern match at Calculator (line 96, column 18 - line 99, column 100): " + [ s.constructor.name ]);
 };
 var enterDecimal = function (currentValue) {
     var $54 = Data_String_Utils.includes(".")(currentValue);
@@ -24885,7 +24885,7 @@ var buttonWidth = 60;
 var containerStyle = React_Basic_DOM.css({
     display: "grid",
     gridTemplateColumns: "auto auto auto auto",
-    width: 4 * buttonWidth | 0,
+    width: (4 * buttonWidth | 0) + 3 | 0,
     background: "#333",
     gridGap: 1,
     borderRadius: 4,
@@ -24893,7 +24893,7 @@ var containerStyle = React_Basic_DOM.css({
 });
 var buttonStyle = React_Basic_DOM.css({
     fontSize: 24,
-    width: "100%",
+    width: buttonWidth,
     height: 48,
     border: "none",
     background: "#666",
@@ -24902,7 +24902,8 @@ var buttonStyle = React_Basic_DOM.css({
     fontWeight: 100,
     dispaly: "flex",
     justifyContent: "center",
-    alignContent: "center"
+    alignContent: "center",
+    padding: 0
 });
 var operationStyle = React_Basic_DOM.mergeStyles([ buttonStyle, React_Basic_DOM.css({
     background: "#F90",
@@ -24957,7 +24958,8 @@ var calculator = (function () {
                     children: [ React_Basic_DOM.text(self.state.value) ],
                     style: readoutStyle
                 }), clearButton, plusMinusButton, percentButton, binOpButton("\xf7")(Data_EuclideanRing.div(Data_EuclideanRing.euclideanRingNumber)), numButton(7), numButton(8), numButton(9), binOpButton("\xd7")(Data_Semiring.mul(Data_Semiring.semiringNumber)), numButton(4), numButton(5), numButton(6), binOpButton("-")(Data_Ring.sub(Data_Ring.ringNumber)), numButton(1), numButton(2), numButton(3), binOpButton("+")(Data_Semiring.add(Data_Semiring.semiringNumber)), genericButton("0")(handleNumber("0"))(React_Basic_DOM.css({
-                    gridColumn: "1 / span 2"
+                    gridColumn: "1 / span 2",
+                    width: (2 * buttonWidth | 0) + 1 | 0
                 })), genericButton(".")(handleDecimal)(buttonStyle), genericButton("=")(handleEquals)(operationStyle) ]
             }) ]
         });

@@ -18,7 +18,7 @@ buttonWidth = 60
 buttonStyle :: R.CSS
 buttonStyle = R.css 
   { fontSize: 24
-  , width: "100%"
+  , width: buttonWidth
   , height: 48
   , border: "none"
   , background: "#666"
@@ -28,6 +28,7 @@ buttonStyle = R.css
   , dispaly: "flex"
   , justifyContent: "center"
   , alignContent: "center"
+  , padding: 0
   }
 
 operationStyle :: R.CSS
@@ -43,7 +44,7 @@ containerStyle :: R.CSS
 containerStyle = R.css
   { display: "grid"
   , gridTemplateColumns: "auto auto auto auto"
-  , width: 4 * buttonWidth
+  , width: 4 * buttonWidth + 3
   , background: "#333"
   , gridGap: 1
   , borderRadius: 4
@@ -156,7 +157,7 @@ calculator = make (createComponent "Calculator") { initialState, render }
                 numButton 4, numButton 5, numButton 6, binOpButton "\x002D" (-),
                 numButton 1, numButton 2, numButton 3, binOpButton "+" (+),
 
-                genericButton "0" (handleNumber "0") (R.css { gridColumn: "1 / span 2" }),
+                genericButton "0" (handleNumber "0") (R.css { gridColumn: "1 / span 2", width: 2 * buttonWidth + 1 }),
                 genericButton "." handleDecimal buttonStyle,
                 genericButton "=" handleEquals operationStyle
               ]

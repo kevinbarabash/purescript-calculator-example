@@ -1,0 +1,14 @@
+{
+  "name": "react-basic",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
+  },
+  "scripts": {
+    "build": "pulp browserify --to demo/bundle.js",
+    "watch": "pulp --watch browserify --to demo/bundle.js"
+  }
+}

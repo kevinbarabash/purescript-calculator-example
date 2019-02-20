@@ -24957,8 +24957,7 @@ var calculator = (function () {
                     children: [ React_Basic_DOM.text(self.state.value) ],
                     style: readoutStyle
                 }), clearButton, plusMinusButton, percentButton, binOpButton("\xf7")(Data_EuclideanRing.div(Data_EuclideanRing.euclideanRingNumber)), numButton(7), numButton(8), numButton(9), binOpButton("\xd7")(Data_Semiring.mul(Data_Semiring.semiringNumber)), numButton(4), numButton(5), numButton(6), binOpButton("-")(Data_Ring.sub(Data_Ring.ringNumber)), numButton(1), numButton(2), numButton(3), binOpButton("+")(Data_Semiring.add(Data_Semiring.semiringNumber)), genericButton("0")(handleNumber("0"))(React_Basic_DOM.css({
-                    gridColumn: "1 / span 2",
-                    marginRight: buttonWidth
+                    gridColumn: "1 / span 2"
                 })), genericButton(".")(handleDecimal)(buttonStyle), genericButton("=")(handleEquals)(operationStyle) ]
             }) ]
         });

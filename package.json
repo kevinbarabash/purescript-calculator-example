@@ -8,7 +8,7 @@
     "react-dom": "^16.8.2"
   },
   "scripts": {
-    "build": "pulp browserify --to demo/bundle.js",
-    "watch": "pulp --watch browserify --to demo/bundle.js"
+    "build": "pulp browserify --to docs/bundle.js",
+    "watch": "pulp --watch browserify --to docs/bundle.js"
   }
 }

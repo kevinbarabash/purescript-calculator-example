@@ -156,7 +156,7 @@ calculator = make (createComponent "Calculator") { initialState, render }
                 numButton 4, numButton 5, numButton 6, binOpButton "\x002D" (-),
                 numButton 1, numButton 2, numButton 3, binOpButton "+" (+),
 
-                genericButton "0" (handleNumber "0") (R.css { gridColumn: "1 / span 2", marginRight: buttonWidth }),
+                genericButton "0" (handleNumber "0") (R.css { gridColumn: "1 / span 2" }),
                 genericButton "." handleDecimal buttonStyle,
                 genericButton "=" handleEquals operationStyle
               ]

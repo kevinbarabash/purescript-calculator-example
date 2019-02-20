@@ -1,6 +1,6 @@
 # purescript-calculator-example
 
-This example uses purescript-react-basic to implement a simple calculator.
+This example uses purescript-react-basic to implement a simple calculator. [demo](https://kevinbarabash.github.io/purescript-calculator-example/)
 
 ![calculator](calculator.png)
 

@@ -7,6 +7,7 @@ const NODE_ENV = process.env.NODE_ENV || "development";
 
 export default {
     input: 'es6_output/Main/index.js',
+    external: ['react', 'react-dom'],
     output: {
         file: 'docs/bundle.js',
         format: 'esm'

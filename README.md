@@ -13,3 +13,4 @@ This example uses purescript-react-basic to implement a simple calculator. [demo
 # TODO
 
 - update es6ify to have a watcher mode
+- update convert.js to handle imports/exports that are keywords, e.g. null in Data.Nullable

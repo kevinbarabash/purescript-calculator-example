@@ -2,6 +2,8 @@
 <html>
     <body>
         <div id="container"></div>
-        <script src="bundle.js"></script>
+        <script type="module" lang="javascript">
+            import("./bundle.js").then(mod => mod.main());
+        </script>
     </body>
 </html>

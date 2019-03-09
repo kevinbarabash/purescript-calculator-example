@@ -8,7 +8,18 @@
     "react-dom": "^16.8.2"
   },
   "scripts": {
-    "build": "pulp browserify --to docs/bundle.js",
-    "watch": "pulp --watch browserify --to docs/bundle.js"
+    "build": "purs compile 'bower_components/*/src/**/*.purs' 'src/**/*.purs'",
+    "es6ify": "node es6ify/index.js",
+    "bundle": "NODE_ENV=production rollup -c"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "purs-loader": "^3.3.0",
+    "rollup": "^1.6.0",
+    "rollup-plugin-commonjs": "^9.2.1",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-purs": "^1.0.38",
+    "rollup-plugin-replace": "^2.1.0"
   }
 }

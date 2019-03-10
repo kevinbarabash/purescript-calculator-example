@@ -17,6 +17,7 @@
     "@babel/generator": "^7.3.4",
     "@babel/parser": "^7.3.4",
     "@babel/traverse": "^7.3.4",
+    "@babel/types": "^7.3.4",
     "mkdirp": "^0.5.1",
     "purs-loader": "^3.3.0",
     "rollup": "^1.6.0",

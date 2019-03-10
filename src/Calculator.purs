@@ -141,26 +141,25 @@ calculator = make (createComponent "Calculator") { initialState, render }
       let plusMinusButton = genericButton "\x00B1" (\s -> s { value = toggleSign s.value }) buttonStyle
       let percentButton = genericButton "%" (\s -> s { value = show $ 0.01 * (readFloat s.value) }) buttonStyle
 
-      R.div 
-        { children: 
-          [
-            R.div {
-              style: containerStyle,
-              children: [
-                R.div { 
-                  children: [ R.text self.state.value ],
-                  style: readoutStyle
-                },
+      R.div { 
+        children: [
+          R.div {
+            style: containerStyle,
+            children: [
+              R.div { 
+                children: [ R.text self.state.value ],
+                style: readoutStyle
+              },
 
-                clearButton, plusMinusButton, percentButton, binOpButton "\x00F7" (/),
-                numButton 7, numButton 8, numButton 9, binOpButton "\x00D7" (*),
-                numButton 4, numButton 5, numButton 6, binOpButton "\x002D" (-),
-                numButton 1, numButton 2, numButton 3, binOpButton "+" (+),
+              clearButton, plusMinusButton, percentButton, binOpButton "\x00F7" (/),
+              numButton 7, numButton 8, numButton 9, binOpButton "\x00D7" (*),
+              numButton 4, numButton 5, numButton 6, binOpButton "\x002D" (-),
+              numButton 1, numButton 2, numButton 3, binOpButton "+" (+),
 
-                genericButton "0" (handleNumber "0") (R.css { gridColumn: "1 / span 2", width: 2 * buttonWidth + 1 }),
-                genericButton "." handleDecimal buttonStyle,
-                genericButton "=" handleEquals operationStyle
-              ]
-            }
-          ]
-        }
+              genericButton "0" (handleNumber "0") (R.css { gridColumn: "1 / span 2", width: 2 * buttonWidth + 1 }),
+              genericButton "." handleDecimal buttonStyle,
+              genericButton "=" handleEquals operationStyle
+            ]
+          }
+        ]
+      }

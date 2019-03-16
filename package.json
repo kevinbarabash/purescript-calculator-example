@@ -9,9 +9,8 @@
   },
   "scripts": {
     "build": "purs compile 'bower_components/*/src/**/*.purs' 'src/**/*.purs'",
-    "es6ify": "node es6ify/index.js",
-    "es6ify:deps": "node es6ify-deps/index.js",
-    "bundle": "NODE_ENV=production rollup -c"
+    "watch": "pulp --watch build",
+    "bundle": "node bundler/index.js"
   },
   "devDependencies": {
     "@babel/generator": "^7.3.4",

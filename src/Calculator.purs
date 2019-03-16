@@ -2,6 +2,7 @@ module Calculator where
   
 import Prelude
 
+import Data.Function (flip)
 import Data.Maybe (Maybe(..))
 import Data.String (Pattern(..), Replacement(..), replace)
 import Data.String.Utils (includes, startsWith)
@@ -84,19 +85,19 @@ handleOperation op' s = case s of
   {value, operation: Nothing, stack} -> s { operation = Just op', stack = "" }
   {value, operation: Just op, stack: ""} -> s 
     { operation = Just op'
-    , value = show $ op (readFloat value) (readFloat value)
+    , value = show $ flip op (readFloat value) (readFloat value)
     }
   {value, operation: Just op, stack} -> s 
     { operation = Just op'
-    , value = show $ op (readFloat value) (readFloat stack)
+    , value = show $ flip op (readFloat value) (readFloat stack)
     , stack = ""
     }
 
 handleEquals :: State -> State
 handleEquals s = case s of
   {value, operation: Nothing, stack} -> s
-  {value, operation: Just op, stack: ""} -> s { value = show $ op (readFloat value) (readFloat value), stack = value }
-  {value, operation: Just op, stack} -> s { value = show $ op (readFloat value) (readFloat stack) }
+  {value, operation: Just op, stack: ""} -> s { value = show $ flip op (readFloat value) (readFloat value), stack = value }
+  {value, operation: Just op, stack} -> s { value = show $ flip op (readFloat value) (readFloat stack) }
 
 handleDecimal :: State -> State
 handleDecimal s = case s of

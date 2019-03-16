@@ -1,5 +1,15 @@
 import react from "./react.js";
 
+var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x.default : x;
+}
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
 /*
 object-assign
 (c) Sindre Sorhus
@@ -88,16 +98,6 @@ var objectAssign = shouldUseNative() ? Object.assign : function (target, source)
 
 	return to;
 };
-
-var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
-
-function unwrapExports (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x.default : x;
-}
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
 
 var scheduler_production_min = createCommonjsModule(function (module, exports) {
 Object.defineProperty(exports,"__esModule",{value:!0});var d=null,e=!1,g=3,k=-1,l=-1,m=!1,n=!1;function p(){if(!m){var a=d.expirationTime;n?q():n=!0;r(t,a);}}
@@ -396,19 +396,47 @@ var Vi={createPortal:Ti,findDOMNode:function(a){if(null==a)return null;if(1===a.
 x("38"):void 0;return Si(a,b,c,!1,d)},unmountComponentAtNode:function(a){Qi(a)?void 0:x("40");return a._reactRootContainer?(Hi(function(){Si(null,null,a,!1,function(){a._reactRootContainer=null;});}),!0):!1},unstable_createPortal:function(){return Ti.apply(void 0,arguments)},unstable_batchedUpdates:Gi,unstable_interactiveUpdates:Ii,flushSync:function(a,b){W?x("187"):void 0;var c=X;X=!0;try{return ki(a,b)}finally{X=c,Yh(1073741823,!1);}},unstable_createRoot:Ui,unstable_flushControlled:function(a){var b=
 X;X=!0;try{ki(a);}finally{(X=b)||W||Yh(1073741823,!1);}},__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{Events:[Ia,Ja,Ka,Ba.injectEventPluginsByName,pa,Qa,function(a){ya(a,Pa);},Eb,Fb,Dd,Da]}};function Ui(a,b){Qi(a)?void 0:x("299","unstable_createRoot");return new Pi(a,!0,null!=b&&!0===b.hydrate)}
 (function(a){var b=a.findFiberByHostInstance;return Te(objectAssign({},a,{overrideProps:null,currentDispatcherRef:Tb.ReactCurrentDispatcher,findHostInstanceByFiber:function(a){a=hd(a);return null===a?null:a.stateNode},findFiberByHostInstance:function(a){return b?b(a):null}}))})({findFiberByHostInstance:Ha,bundleType:0,version:"16.8.2",rendererPackageName:"react-dom"});var Wi={default:Vi},Xi=Wi&&Vi||Wi;var reactDom_production_min=Xi.default||Xi;
-var reactDom_production_min_1 = reactDom_production_min.createPortal;
-var reactDom_production_min_2 = reactDom_production_min.findDOMNode;
-var reactDom_production_min_3 = reactDom_production_min.hydrate;
-var reactDom_production_min_4 = reactDom_production_min.render;
-var reactDom_production_min_5 = reactDom_production_min.unstable_renderSubtreeIntoContainer;
-var reactDom_production_min_6 = reactDom_production_min.unmountComponentAtNode;
-var reactDom_production_min_7 = reactDom_production_min.unstable_createPortal;
-var reactDom_production_min_8 = reactDom_production_min.unstable_batchedUpdates;
-var reactDom_production_min_9 = reactDom_production_min.unstable_interactiveUpdates;
-var reactDom_production_min_10 = reactDom_production_min.flushSync;
-var reactDom_production_min_11 = reactDom_production_min.unstable_createRoot;
-var reactDom_production_min_12 = reactDom_production_min.unstable_flushControlled;
-var reactDom_production_min_13 = reactDom_production_min.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
-export default reactDom_production_min;
-export { reactDom_production_min_1 as createPortal, reactDom_production_min_2 as findDOMNode, reactDom_production_min_3 as hydrate, reactDom_production_min_4 as render, reactDom_production_min_5 as unstable_renderSubtreeIntoContainer, reactDom_production_min_6 as unmountComponentAtNode, reactDom_production_min_7 as unstable_createPortal, reactDom_production_min_8 as unstable_batchedUpdates, reactDom_production_min_9 as unstable_interactiveUpdates, reactDom_production_min_10 as flushSync, reactDom_production_min_11 as unstable_createRoot, reactDom_production_min_12 as unstable_flushControlled, reactDom_production_min_13 as __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED };
+var reactDom = createCommonjsModule(function (module) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+{
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = reactDom_production_min;
+}
+});
+var reactDom_1 = reactDom.createPortal;
+var reactDom_2 = reactDom.findDOMNode;
+var reactDom_3 = reactDom.hydrate;
+var reactDom_4 = reactDom.render;
+var reactDom_5 = reactDom.unstable_renderSubtreeIntoContainer;
+var reactDom_6 = reactDom.unmountComponentAtNode;
+var reactDom_7 = reactDom.unstable_createPortal;
+var reactDom_8 = reactDom.unstable_batchedUpdates;
+var reactDom_9 = reactDom.unstable_interactiveUpdates;
+var reactDom_10 = reactDom.flushSync;
+var reactDom_11 = reactDom.unstable_createRoot;
+var reactDom_12 = reactDom.unstable_flushControlled;
+var reactDom_13 = reactDom.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+
+export default reactDom;
+export { reactDom_1 as createPortal, reactDom_2 as findDOMNode, reactDom_3 as hydrate, reactDom_4 as render, reactDom_5 as unstable_renderSubtreeIntoContainer, reactDom_6 as unmountComponentAtNode, reactDom_7 as unstable_createPortal, reactDom_8 as unstable_batchedUpdates, reactDom_9 as unstable_interactiveUpdates, reactDom_10 as flushSync, reactDom_11 as unstable_createRoot, reactDom_12 as unstable_flushControlled, reactDom_13 as __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED };

@@ -12,7 +12,7 @@ const NODE_ENV = process.env.NODE_ENV || "development";
 
 const bundleMain = async (inputPath, outputPath) => {
     const bundle = await rollup.rollup({
-        input: 'es6_output/Main/index.js',
+        input: inputPath,
         external: ['react', 'react-dom'],
         output: {
             file: outputPath,

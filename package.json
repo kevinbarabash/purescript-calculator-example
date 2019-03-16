@@ -27,6 +27,7 @@
     "rollup-plugin-purs": "^1.0.38",
     "rollup-plugin-replace": "^2.1.0",
     "rollup-plugin-terser": "^4.0.4",
-    "rollup-plugin-uglify": "^6.0.2"
+    "rollup-plugin-uglify": "^6.0.2",
+    "tmp": "^0.0.33"
   }
 }

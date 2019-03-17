@@ -10,7 +10,10 @@
   "scripts": {
     "build": "purs compile 'bower_components/*/src/**/*.purs' 'src/**/*.purs'",
     "watch": "pulp --watch build",
-    "bundle": "node bundler/index.js"
+    "bundle:pulp": " pulp build --optimise --to docs/bundle.pulp.js",
+    "bundle:puree": "puree --outdir docs --name bundle.puree.js output",
+    "bundle:purs": "purs bundle output/**/*.js -o docs/bundle.purs.js -m Main",
+    "bundle:rollup": "rollup -c"
   },
   "devDependencies": {
     "@babel/generator": "^7.3.4",
@@ -21,6 +24,7 @@
     "purs-loader": "^3.3.0",
     "rollup": "^1.6.0",
     "rollup-plugin-auto-external": "^2.0.0",
+    "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^9.2.1",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^4.0.1",

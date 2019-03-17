@@ -6,11 +6,19 @@ This example uses purescript-react-basic to implement a simple calculator. [demo
 
 # Quick Start
 
-- yarn build  // compile .purs files to .js (es5 modules)
-- yarn es6ify // converts es5 modules from purs compile to es6 modules that can be consumed by rollup
-- yarn bundle // bundle es6 modules with rollup
+- yarn build
+- yarn bundle:puree
 
-# TODO
+# Alternative Builds
 
-- update es6ify to have a watcher mode
-- update convert.js to handle imports/exports that are keywords, e.g. null in Data.Nullable
+- yarn bundle:rollup
+- yarn bundle:pulp
+- yarn bundle:purs
+
+Notes: 
+- bundle:rollup requires commenting out the following line in
+  Web.HTML.HTMLTrackElement: `"default": $foreign["default"],` to build correctly.
+- bundle.rollup.js requires changing `import 'react'` to `import './react.js'` and
+  `import 'react-dom'` to `import './react-dom.js'` to run.
+- bundle.purs.js and bundle.pulp.js require additional build steps to run since
+  browsers can't require commonjs modules without additional help.

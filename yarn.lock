@@ -797,6 +797,14 @@ jest-worker@^24.0.0:
     merge-stream "^1.0.1"
     supports-color "^6.1.0"
 
+js-cleanup@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/js-cleanup/-/js-cleanup-1.0.1.tgz#1d38080c7ee92e1d2d2b94054d0a33c48951e0df"
+  dependencies:
+    magic-string "^0.25.1"
+    perf-regexes "^1.0.1"
+    skip-regex "^1.0.2"
+
 js-string-escape@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/js-string-escape/-/js-string-escape-1.0.1.tgz#e2625badbc0d67c7533e9edc1068c587ae4137ef"
@@ -1062,6 +1070,10 @@ path-type@^3.0.0:
   dependencies:
     pify "^3.0.0"
 
+perf-regexes@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/perf-regexes/-/perf-regexes-1.0.1.tgz#6da1d62f5a94bf9353a0451bccacf69068b75d0b"
+
 pify@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
@@ -1224,6 +1236,13 @@ rollup-plugin-auto-external@^2.0.0:
     safe-resolve "^1.0.0"
     semver "^5.5.0"
 
+rollup-plugin-cleanup@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-cleanup/-/rollup-plugin-cleanup-3.1.1.tgz#d012faab5e212b1c4bfa8144ace70fc6ac7b3315"
+  dependencies:
+    js-cleanup "^1.0.1"
+    rollup-pluginutils "^2.3.3"
+
 rollup-plugin-commonjs@^9.2.1:
   version "9.2.1"
   resolved "https://registry.yarnpkg.com/rollup-plugin-commonjs/-/rollup-plugin-commonjs-9.2.1.tgz#bb151ca8fa23600c7a03e25f9f0a45b1ee922dac"
@@ -1349,6 +1368,10 @@ set-value@^2.0.0:
     is-extendable "^0.1.1"
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
+
+skip-regex@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/skip-regex/-/skip-regex-1.0.2.tgz#ac655d77e7c771ac2b9f37585fea37bff56ad65b"
 
 slash@^1.0.0:
   version "1.0.0"

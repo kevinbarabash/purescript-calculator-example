@@ -1,5 +1,5 @@
-import { Component as _Component, createElement as _createElement } from 'react';
-import { render as _render$ } from 'react-dom';
+import { Component as _Component, createElement as _createElement } from './react.js';
+import { render as _render$ } from './react-dom.js';
 
 var _unit2 = {};
 

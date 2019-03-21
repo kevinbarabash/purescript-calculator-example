@@ -2,7 +2,6 @@ module Calculator where
   
 import Prelude
 
-import Data.Function (flip)
 import Data.Maybe (Maybe(..))
 import Data.String (Pattern(..), Replacement(..), replace)
 import Data.String.Utils (includes, startsWith)

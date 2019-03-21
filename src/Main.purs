@@ -11,6 +11,7 @@ import Web.DOM.NonElementParentNode (getElementById)
 import Web.HTML (window)
 import Web.HTML.HTMLDocument (toNonElementParentNode)
 import Web.HTML.Window (document)
+import Effect.Unsafe (unsafePerformEffect)
 
 main :: Effect Unit
 main = do
@@ -18,7 +19,7 @@ main = do
     doc <- document win
     container <- getElementById "container" $ toNonElementParentNode doc
     case container of
-        Nothing -> throw "Container element not found."
+        Nothing -> throw "Container element not found!"
         Just c  ->
             let app = calculator {}
             in render app c

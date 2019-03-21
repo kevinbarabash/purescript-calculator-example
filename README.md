@@ -6,8 +6,8 @@ This example uses purescript-react-basic to implement a simple calculator. [demo
 
 # Quick Start
 
-- yarn build
-- yarn bundle:puree
+- yarn start
+- open http://localhost:4008/ in a browser
 
 # Alternative Builds
 

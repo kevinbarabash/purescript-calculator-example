@@ -14,7 +14,7 @@
     "bundle:puree": "puree --outdir docs --name bundle.puree.js output",
     "bundle:purs": "purs bundle output/**/*.js -o docs/bundle.purs.js -m Main",
     "bundle:rollup": "rollup -c",
-    "webpack:server": "webpack-dev-server --progress --inline --hot"
+    "start": "webpack-dev-server --progress --inline --hot"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
